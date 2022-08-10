@@ -12,7 +12,7 @@
         "npm": "please-use-yarn"
     },
     "scripts": {
-        "dev": "next dev",
+        "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
         "build": "next build",
         "start": "next start",
         "prettier": "prettier --write .",
@@ -30,6 +30,7 @@
         "@commitlint/cli": "^17.0.3",
         "@commitlint/config-conventional": "^17.0.3",
         "autoprefixer": "^10.4.8",
+        "cross-env": "^7.0.3",
         "eslint": "^7.32.0 || ^8.2.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-next": "12.2.4",

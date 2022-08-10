@@ -133,6 +133,17 @@ yarn add -D @commitlint/config-conventional @commitlint/cli
 </details>
 
 <details>
+<summary>setup cross-env</summary>
+
+run command
+
+```bash
+yarn add -D cross-env
+```
+
+</details>
+
+<details>
 <summary>install tailwind</summary>
 
 </details>
