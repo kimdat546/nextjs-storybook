@@ -1,34 +1,138 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[build scalable architecture for nextjs](https://dev.to/alexeagleson/how-to-build-scalable-architecture-for-your-nextjs-project-2pb7)
 
-## Getting Started
+<details>
+<summary>set up ESLint and Prettier</summary>
 
-First, run the development server:
+[set up Next.js - VSCode, ESLint and Prettier](https://dev.to/achmand/getting-started-with-next-js-vscode-eslint-and-prettier-3pap)
 
-```bash
-npm run dev
-# or
-yarn dev
+## Setting up ESLint:
+
+```
+yarn add eslint --dev
+yarn run eslint --init
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   How would you like to use ESLint? To check syntax, find problems, and enforce code style
+-   What types of modules does your project use? Javascript modules (import/export)
+-   Which framework does your project use? React
+-   Does your project use TypeScript? No
+    Where does your code run? Browser
+-   How would you like to define a style for your project? Use a popular style guide
+-   Which style guide do you want to follow? Airbnb (In this guide we use this style as it is our personal preference)
+-   What format do you want your config file to be in? JSON
+-   When prompted to install dependencies select ‘yes’.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+create .estlintignore file
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+.next
+dist
+node_modules/
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Formatting using Prettier
 
-## Learn More
+```
+yarn add --dev --exact prettier
+```
 
-To learn more about Next.js, take a look at the following resources:
+create .prettierrc.json file and paste
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+{
+    "singleQuote": true, # Use single quotes instead of double quotes
+    "tabWidth": 2,       # Number of spaces per indentation level
+    "semi": true         # Print semicolons
+}
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ignore conflict rules
 
-## Deploy on Vercel
+```
+yarn add --dev eslint-config-prettier
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+</details>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<details>
+<summary>install tailwind</summary>
+
+[documentation](https://tailwindcss.com/docs/guides/nextjs)
+
+```bash
+yarn add -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+config file tailwind.config.js
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: [
+        './pages/**/*.{js,ts,jsx,tsx}',
+        './components/**/*.{js,ts,jsx,tsx}'
+    ],
+    theme: {
+        extend: {}
+    },
+    plugins: []
+};
+```
+
+config file global.css
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+</details>
+
+<details>
+<summary>setup husky</summary>
+
+run command
+
+```bash
+yarn add -D husky
+npx husky install
+```
+
+how to create new hook in husky
+
+```bash
+npx husky add .husky/pre-commit "yarn lint"
+npx husky add .husky/pre-push "yarn build"
+```
+
+enable commitlint with husky
+
+```bash
+npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
+# Sometimes above command doesn't work in some command interpreters
+# You can try other commands below to write npx --no -- commitlint --edit $1
+# in the commit-msg file.
+npx husky add .husky/commit-msg \"npx --no -- commitlint --edit '$1'\"
+# or
+npx husky add .husky/commit-msg "npx --no -- commitlint --edit $1"
+```
+
+</details>
+
+<details>
+<summary>setup commitlint</summary>
+
+run command
+
+```bash
+yarn add -D @commitlint/config-conventional @commitlint/cli
+```
+
+</details>
+
+<details>
+<summary>install tailwind</summary>
+
+</details>
