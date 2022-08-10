@@ -1,5 +1,13 @@
 [build scalable architecture for nextjs](https://dev.to/alexeagleson/how-to-build-scalable-architecture-for-your-nextjs-project-2pb7)
 
+[setup multiple theme with tailwind css](https://dev.to/scriptmint/multicolor-theme-setup-with-tailwind-css-1odd)
+
+### Install some packages
+
+```bash
+yarn add @emotion/react framer-motion
+```
+
 <details>
 <summary>set up ESLint and Prettier</summary>
 
