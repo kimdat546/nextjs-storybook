@@ -17,7 +17,9 @@
         "start": "next start",
         "prettier": "prettier --write .",
         "lint": "next lint",
-        "husky": "husky install"
+        "husky": "husky install",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
     },
     "dependencies": {
         "@emotion/react": "^11.10.0",
@@ -27,9 +29,19 @@
         "react-dom": "18.2.0"
     },
     "devDependencies": {
+        "@babel/core": "^7.18.10",
         "@commitlint/cli": "^17.0.3",
         "@commitlint/config-conventional": "^17.0.3",
+        "@storybook/addon-actions": "^6.5.10",
+        "@storybook/addon-essentials": "^6.5.10",
+        "@storybook/addon-interactions": "^6.5.10",
+        "@storybook/addon-links": "^6.5.10",
+        "@storybook/builder-webpack5": "^6.5.10",
+        "@storybook/manager-webpack5": "^6.5.10",
+        "@storybook/react": "^6.5.10",
+        "@storybook/testing-library": "^0.0.13",
         "autoprefixer": "^10.4.8",
+        "babel-loader": "^8.2.5",
         "cross-env": "^7.0.3",
         "eslint": "^7.32.0 || ^8.2.0",
         "eslint-config-airbnb": "^19.0.4",
@@ -39,9 +51,13 @@
         "eslint-plugin-jsx-a11y": "^6.5.1",
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-react-hooks": "^4.3.0",
+        "eslint-plugin-storybook": "^0.6.4",
         "husky": "^8.0.1",
         "postcss": "^8.4.16",
         "prettier": "^2.7.1",
         "tailwindcss": "^3.1.8"
+    },
+    "resolutions": {
+        "webpack": "^5"
     }
 }

@@ -144,6 +144,17 @@ yarn add -D cross-env
 </details>
 
 <details>
-<summary>install tailwind</summary>
+<summary>setup Storybook</summary>
+
+run command
+
+```bash
+npx sb init --builder webpack5
+```
+
+</details>
+
+<details>
+<summary>setup </summary>
 
 </details>

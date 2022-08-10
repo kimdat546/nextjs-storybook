@@ -3,7 +3,22 @@
         "browser": true,
         "es2021": true
     },
-    "extends": ["next", "next/core-web-vitals", "airbnb", "prettier"],
+    "extends": [
+        "plugin:storybook/recommended",
+        "next",
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "airbnb",
+        "prettier"
+    ],
+    "overrides": [
+        {
+            "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+            "rules": {
+                "storybook/hierarchy-separator": "error"
+            }
+        }
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
