@@ -1,10 +1,29 @@
+import { useTheme } from 'next-themes';
+import Head from 'next/head';
+import React from "react";
 
-export default function Home() {
+const Home = () => {
+    const { themes, setTheme } = useTheme()
     return (
-        <div>
-            <h1 className="text-[red] font-[700] text-[30px]">
-                hello
-            </h1>
-        </div >
+        <>
+            <Head>
+                <title>Portfolio from Nguyen Dat</title>
+            </Head>
+            <div>
+                {themes.map(theme => {
+                    return (
+                        <button
+                            type="button"
+                            key={theme}
+                            onClick={() => { return setTheme(theme) }}
+                            className="font-[700] text-[30px] p-2 m-2 rounded-lg"
+                        >
+                            {theme}
+                        </button>
+                    )
+                })}
+            </div></>
     );
 }
+
+export default Home

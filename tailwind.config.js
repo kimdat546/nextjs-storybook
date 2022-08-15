@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: "class",
@@ -7,13 +8,36 @@ module.exports = {
     ],
     theme: {
         screens: {
-            xs: '375px',
-            sm: '600px',
-            md: '900px',
-            lg: '1200px',
-            xl: '1536px',
+            'xs': '375px',
+            'sm': '600px',
+            'md': '768px',
+            'lg': '992px',
+            'xl': '1440px',
+            '2xl': '1920px',
+            '3xl': '2560px',
         },
-        extend: {}
+        textColor: {
+            "primary": "var(--color-primary)",
+            "secondary": "var(--color-secondary)",
+            ...colors
+        },
+        backgroundColor: {
+            "primary": "var(--background-primary)",
+            "secondary": "var(--background-secondary)",
+            ...colors
+        },
+        fontFamily: {
+            sans: ['Be Vietnam Pro', 'sans-serif'],
+        },
+        extend: {
+            spacing: {
+                '128': '32rem',
+                '144': '36rem',
+            },
+            borderRadius: {
+                '4xl': '2rem',
+            }
+        }
     },
     variants: {},
     plugins: []

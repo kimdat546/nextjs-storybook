@@ -1,11 +1,35 @@
-import PrimaryLayout from '../components/layouts/PrimaryLayout';
+
+import { AnimatePresence } from 'framer-motion';
+import { ThemeProvider } from 'next-themes';
+import { Fonts } from '../components';
+import { PrimaryLayout } from '../components/layouts';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps, router }) {
+const MyApp = ({ Component, pageProps, router }) => {
     return (
-        <PrimaryLayout>
-            <Component {...pageProps} key={router.route} />
-        </PrimaryLayout>
+        <ThemeProvider
+            defaultTheme="dark"
+            attribute="data-theme"
+            enableSystem={false}
+            enableColorScheme={false}
+            themes={['light', 'dark']}
+        >
+            <PrimaryLayout>
+                <Fonts />
+                <AnimatePresence
+                    exitBeforeEnter
+                    initial
+                    onExitComplete={() => {
+                        if (typeof window !== 'undefined') {
+                            window.scrollTo({ top: 0 })
+                        }
+                    }}
+                >
+                    <Component {...pageProps} key={router.route} />
+                </AnimatePresence>
+            </PrimaryLayout>
+        </ThemeProvider>
+
     );
 }
 
