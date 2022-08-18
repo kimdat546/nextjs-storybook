@@ -13,7 +13,11 @@ const PrimaryLayout = ({ children }) => {
                 <meta name="author" content="Portfolio from Nguyen Dat" />
                 <meta name="author" content="kimdat546" />
                 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-                <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+                <link
+                    rel="shortcut icon"
+                    href="/favicon.ico"
+                    type="image/x-icon"
+                />
                 <meta name="twitter:title" content="kimdat546" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:site" content="@kimdat546" />
@@ -25,9 +29,7 @@ const PrimaryLayout = ({ children }) => {
                 <meta property="og:image" content="/card.png" />
             </Head>
             <NavBar />
-            <div className="max-w-[768px] mx-auto mt-[60px]">
-                {children}
-            </div>
+            <div className="max-w-[768px] mx-auto mt-[60px]">{children}</div>
         </>
     );
 };

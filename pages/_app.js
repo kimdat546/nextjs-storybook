@@ -1,4 +1,3 @@
-
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from 'next-themes';
 import { Fonts } from '../components';
@@ -21,7 +20,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                     initial
                     onExitComplete={() => {
                         if (typeof window !== 'undefined') {
-                            window.scrollTo({ top: 0 })
+                            window.scrollTo({ top: 0 });
                         }
                     }}
                 >
@@ -29,8 +28,7 @@ const MyApp = ({ Component, pageProps, router }) => {
                 </AnimatePresence>
             </PrimaryLayout>
         </ThemeProvider>
-
     );
-}
+};
 
 export default MyApp;
